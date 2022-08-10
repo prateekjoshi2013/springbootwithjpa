@@ -12,13 +12,22 @@ import javax.persistence.*;
 @Data
 @Entity
 @Builder
-@Table(name="tbl_student")
+@Table(name = "tbl_student",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "emailid_unique",
+                        columnNames = {
+                                "email_address"
+                        }
+                ),
+        }
+)
 public class Student {
     /**
      * Auto (default) - just a primary key and no auto generation
-     *
+     * <p>
      * Sequence -  along with Sequence generator definition - creates a sequence with the table and
-     *  uses it for id gen
+     * uses it for id gen
      */
     @Id
     @SequenceGenerator(
@@ -33,7 +42,8 @@ public class Student {
     private Long id;
     private String firstName;
     private String lastName;
-    @Column(name="email_address")
+
+    @Column(name = "email_address", nullable = false)
     private String email;
     private String guardianName;
     private String guardianEmail;
