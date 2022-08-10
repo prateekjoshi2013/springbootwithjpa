@@ -19,4 +19,10 @@ public class Course {
     private Long id;
     private String title;
     private Integer credit;
+
+    //needed for bidirectional mapping to fetch the course material
+    //mappedBy tells us that the relationship is already mapped by
+    // course attribute in CourseMaterial
+    @OneToOne(mappedBy = "course")
+    private CourseMaterial courseMaterial;
 }
