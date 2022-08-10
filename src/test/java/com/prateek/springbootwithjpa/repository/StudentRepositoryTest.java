@@ -78,6 +78,7 @@ class StudentRepositoryTest {
     void getByEmailAddressUsingNativeQuery() {
         System.out.println(studentRepository.getStudentByEmailAddressNativeQuery("test1@xyz.com"));
         System.out.println(studentRepository.getStudentNameByEmailAddressNativeQuery("test1@xyz.com"));
+        System.out.println(studentRepository.getStudentNameByEmailAddressNativeNamedParam("test1@xyz.com"));
     }
 
 
