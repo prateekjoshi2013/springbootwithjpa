@@ -67,4 +67,10 @@ class StudentRepositoryTest {
         System.out.println(studentRepository.findByFirstNameAndLastName("test2","2"));
 
     }
+
+    @Test
+    void getByEmailAddressUsingJpqlQuery() {
+        System.out.println(studentRepository.getStudentByEmailAddress("test1@xyz.com"));
+        System.out.println(studentRepository.getStudentNameByEmailAddress("test1@xyz.com"));
+    }
 }
