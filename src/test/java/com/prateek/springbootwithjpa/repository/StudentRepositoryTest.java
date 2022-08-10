@@ -50,4 +50,21 @@ class StudentRepositoryTest {
         List<Student> students=studentRepository.findAll();
         System.out.println(students);
     }
+
+    @Test
+    void printStudentByfirstName() {
+        System.out.println(studentRepository.findByFirstName("test2"));
+    }
+
+    @Test
+    void printStudentByFirstNameContaining() {
+        System.out.println(studentRepository.findByFirstNameContainingIgnoreCase("test2"));
+    }
+
+    @Test
+    void printStudentBasedOnGuardianName() {
+        System.out.println(studentRepository.findByGuardianName("test2father"));
+        System.out.println(studentRepository.findByFirstNameAndLastName("test2","2"));
+
+    }
 }
