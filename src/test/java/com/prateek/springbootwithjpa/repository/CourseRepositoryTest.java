@@ -1,6 +1,7 @@
 package com.prateek.springbootwithjpa.repository;
 
 import com.prateek.springbootwithjpa.entity.Course;
+import com.prateek.springbootwithjpa.entity.Student;
 import com.prateek.springbootwithjpa.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,5 +68,26 @@ class CourseRepositoryTest {
         List<Course>courses=courseRepository.findByTitleContaining("D",firstPageTenRecords).getContent();
         System.out.println(courses);
 
+    }
+
+    @Test
+    void saveCourseWithStudentAndTeacher() {
+        Teacher teacher=Teacher.builder()
+                .firstName("Lizze")
+                .lastName("Morgan")
+                .build();
+        Course course = Course.builder()
+                .title("AI")
+                .credit(12)
+                .teacher(teacher)
+                .build();
+
+        Student student1= Student.builder()
+                .firstName("test3")
+                .lastName("test3name")
+                .email("testEmailwer@xyz.com")
+                .build();
+        course.addStudents(student1);
+        courseRepository.save(course);
     }
 }
