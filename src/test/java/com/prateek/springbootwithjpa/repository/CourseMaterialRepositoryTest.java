@@ -21,11 +21,11 @@ class CourseMaterialRepositoryTest {
     @Test
     public void saveCourseMaterialTest(){
         Course course= Course.builder()
-                .credit(6)
-                .title("Data Strugtures and Algo")
+                .credit(7)
+                .title("Computer Network")
                 .build();
         CourseMaterial courseMaterial=CourseMaterial.builder()
-                .url("www.google.com")
+                .url("www.dbf.com")
                 .course(course)
                 .build();
         //this works without saving course material first because of cascading all on the relationship

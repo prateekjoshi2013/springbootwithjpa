@@ -18,9 +18,11 @@ public class CourseMaterial {
     private String url;
     //cascading lets us save the transient course even though it is not saved when we try to save course material
     //fetch type determines whether to fetch the course object right away or only when needed
+    //optionality means that whenever we save a course we cannot save it without saving a course material first
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            optional = false
     )
     @JoinColumn(
             name="course_id", //this is the name the Course Material table will have
