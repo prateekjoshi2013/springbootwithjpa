@@ -1,9 +1,6 @@
 package com.prateek.springbootwithjpa.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Data
+@ToString(exclude = "course")
 public class CourseMaterial {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "course_material_generator")
@@ -19,7 +17,11 @@ public class CourseMaterial {
     private Long id;
     private String url;
     //cascading lets us save the transient course even though it is not saved when we try to save course material
-    @OneToOne(cascade = CascadeType.ALL)
+    //fetch type determines whether to fetch the course object right away or only when needed
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     @JoinColumn(
             name="course_id", //this is the name the Course Material table will have
             referencedColumnName = "id" // this is the attribute the course is referring to
