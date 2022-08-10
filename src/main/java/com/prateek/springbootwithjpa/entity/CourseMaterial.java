@@ -18,7 +18,8 @@ public class CourseMaterial {
     @SequenceGenerator(sequenceName = "course_material_generator",name="course_material_generator",allocationSize = 1)
     private Long id;
     private String url;
-    @OneToOne
+    //cascading lets us save the transient course even though it is not saved when we try to save course material
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name="course_id", //this is the name the Course Material table will have
             referencedColumnName = "id" // this is the attribute the course is referring to

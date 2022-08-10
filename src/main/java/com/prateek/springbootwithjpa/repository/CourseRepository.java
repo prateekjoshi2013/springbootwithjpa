@@ -1,10 +1,9 @@
 package com.prateek.springbootwithjpa.repository;
 
-import com.prateek.springbootwithjpa.entity.CourseMaterial;
+import com.prateek.springbootwithjpa.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CourseMaterialRepository extends JpaRepository<CourseMaterial,Long> {
-
+public interface CourseRepository extends JpaRepository<Course,Long> {
 }
