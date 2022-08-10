@@ -20,12 +20,15 @@ public class Teacher {
     private Long id;
     private String firstName;
     private String lastName;
-    @OneToMany(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name="teacher_id",
-            referencedColumnName = "id"
-    )
-    private List<Course> courses;
+    /**
+     * Always go for many to one relationship rather than one to many like below
+     */
+//    @OneToMany(
+//            cascade = CascadeType.ALL
+//    )
+//    @JoinColumn(
+//            name="teacher_id",
+//            referencedColumnName = "id"
+//    )
+//    private List<Course> courses;
 }

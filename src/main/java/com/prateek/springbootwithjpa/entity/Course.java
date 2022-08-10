@@ -25,4 +25,12 @@ public class Course {
     // course attribute in CourseMaterial
     @OneToOne(mappedBy = "course")
     private CourseMaterial courseMaterial;
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name="teacher_id",
+            referencedColumnName = "id"
+    )
+    private Teacher teacher;
 }

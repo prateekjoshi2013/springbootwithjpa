@@ -30,7 +30,7 @@ class TeacherRepositoryTest {
         Teacher teacher=Teacher.builder()
                 .firstName("Qutub")
                 .lastName("Khan")
-                .courses(new ArrayList<>(Arrays.asList(course1,course2)))
+//                .courses(new ArrayList<>(Arrays.asList(course1,course2)))
                 .build();
         teacherRepository.save(teacher);
     }
